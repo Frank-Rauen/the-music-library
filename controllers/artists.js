@@ -15,7 +15,7 @@ function create(req, res) {
     artist.save(function(err){
         if (err) return res.render('artists/new');
         console.log(artist);
-        res.redirect('artists/new');
+        res.redirect('artists');
     });
 }
 

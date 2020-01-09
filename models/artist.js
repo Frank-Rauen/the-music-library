@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const artistSchema = new Schema({
         name: String,
         genre: String,
-        yearFounded: Number,
+        yearFounded: {type: Number, default: 1900},
         // musicians: [musicianSchema]
 });
+
+module.exports = mongoose.model('Artist', artistSchema);

@@ -1,0 +1,20 @@
+<table id="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Year<br>Founded</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% artists.forEach(function(a) { %>
+        <tr>
+          <td><%= a.name %></td>
+          <td><%= a.genre %></td>
+          <td><%= a.yearFounded %></td>
+          <td><a href="/artists/<%= a._id %>">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    

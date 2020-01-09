@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<section id="show-page">
+    <div>Artist:</div>
+    <div><%= artist.name %></div>
+    <div>Genre:</div>
+    <div><%= artist.genre %></div>
+    <div>Year Founded</div>
+    <div><%= artist.yearFounded</div>
+</section>
+<section id="add-album-page">
+    <h2>Albums</h2>
+    <form id="add-album" method="POST" action="/artists/<%= artist._id %>/albums">
+    <label>Album:</label>
+    <textarea name="name"></textarea>
+    <label>Genre:</label>
+    <textarea name="genre"></textarea>
+    <label>Release Year:</label>
+    <textarea name="releaseYear"></textarea>
+    <input type="submit" value="Add Album">
+    </form>
+</section>
+
+<% if (artist.albums.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Genre</th>
+          <th>Release<br>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% artist.albums.forEach(function(r) { %>
+          <tr>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.name %></td>
+            <td><%= r.genre %></td>
+            <td><%= r.releaseYear %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Albums Yet</h5>
+  <% } %>

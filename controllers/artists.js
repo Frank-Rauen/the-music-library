@@ -4,11 +4,11 @@ module.exports = {
     new: newArtist,
     create,
     index,
-    // show
+    show
 }
 
 function newArtist(req, res) {
-    res.render('artists/new');
+    res.render('artists/new', {title: 'Add Artist'});
 }
 
 function create(req, res) {
@@ -31,15 +31,8 @@ function index(req, res) {
     });
 }
 
-// function show(req, res) {
-//     Artist.findById(req.params.id).populate('musicians').exec(function(err,artist){
-//       Musician.find({_id:{$nin: movie.musicians}},
-//         function(err,musicians){
-//           console.log(musicians);
-//           res.render('artists/show', {
-//             title: 'Artist Detail', artist, musicians 
-//           })
-//         }
-//         )
-//     })
-//   }
+function show(req, res) {
+    Artist.findById(req.params.id, function(err, artist) {
+      res.render('artists/show', { title: 'Artist Detail', artist });
+    });
+  }

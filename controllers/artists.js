@@ -3,7 +3,8 @@ const Artist = require('../models/artist')
 module.exports = {
     new: newArtist,
     create,
-    index
+    index,
+    // show
 }
 
 function newArtist(req, res) {
@@ -29,3 +30,16 @@ function index(req, res) {
         res.render('artists/index', {title: 'All Artists', artists});
     });
 }
+
+// function show(req, res) {
+//     Artist.findById(req.params.id).populate('musicians').exec(function(err,artist){
+//       Musician.find({_id:{$nin: movie.musicians}},
+//         function(err,musicians){
+//           console.log(musicians);
+//           res.render('artists/show', {
+//             title: 'Artist Detail', artist, musicians 
+//           })
+//         }
+//         )
+//     })
+//   }

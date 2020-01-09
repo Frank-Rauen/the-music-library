@@ -6,7 +6,7 @@ require('./config/database');
 
 const indexRouter = require('./routes/index');
 const artistsRouter = require('./routes/artists');
-const albumsRouter = require('./routes/albums')
+const albumsRouter = require('./routes/albums');
 
 const app = express();
 

@@ -1,16 +1,5 @@
 <%- include('../partials/header') %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+
 <section id="show-page">
     <div>Artist:</div>
     <div><%= artist.name %></div>
@@ -18,16 +7,16 @@
     <div><%= artist.genre %></div>
     <div>Year Founded</div>
     <div><%= artist.yearFounded</div>
-</section>
-<section id="add-album-page">
+    <div>Musicians:</div>
+  </section>
     <h2>Albums</h2>
     <form id="add-album" method="POST" action="/artists/<%= artist._id %>/albums">
     <label>Album:</label>
-    <textarea name="name"></textarea>
+    <input type="text" name="name">
     <label>Genre:</label>
-    <textarea name="genre"></textarea>
+    <input type="text" name="genre">    
     <label>Release Year:</label>
-    <textarea name="releaseYear"></textarea>
+    <input type="text" name="releaseYear">
     <input type="submit" value="Add Album">
     </form>
 </section>
@@ -39,7 +28,7 @@
           <th>Date</th>
           <th>Name</th>
           <th>Genre</th>
-          <th>Release<br>Year</th>
+          <th>Release Year</th>
         </tr>
       </thead>
       <tbody>

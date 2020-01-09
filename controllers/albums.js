@@ -1,9 +1,5 @@
 const Artist = require('../models/artist');
 
-module.exports = {
-    create
-};
-
 function create(req, res) {
     Artist.findById(req.params.id, function(err, artist){
         artist.albums.push(req.body);
@@ -11,4 +7,7 @@ function create(req, res) {
             res.redirect(`/artists/${artist._id}`);
         });
     });
+}
+module.exports = {
+    create
 }

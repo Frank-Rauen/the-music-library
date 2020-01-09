@@ -8,13 +8,14 @@ const albumSchema = new Schema({
 
 },{
     timestamps: true,
-});
+})
 
 const artistSchema = new Schema({
         name: {type: String, required: true},
         genre: {type: String, required: true},
         yearFounded: {type: Number, default: 1900},
         albums: [albumSchema],
+        // musicians: [{type: Schema.Types.ObjectId, ref:'Musician'}]
 },{
     timestamps: true,
 });

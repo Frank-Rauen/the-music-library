@@ -17,6 +17,11 @@ function create(req, res) {
         console.log(artist);
         res.redirect('artists');
     });
+    if (req.body.yearFounded) req.body.yearFounded = req.body.yearFounded.split(',');
+	// remove empty properties
+	for (let key in req.body) {
+ 	  if (req.body[key] === '') delete req.body[key];
+	}
 }
 
 function index(req, res) {

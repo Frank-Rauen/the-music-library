@@ -14,9 +14,9 @@ function newArtist(req, res) {
 function create(req, res) {
     const artist = new Artist(req.body);
     artist.save(function(err){
-        if (err) return res.render('artists/new');
+        if (err) return res.redirect('artists/new');
         console.log(artist);
-        res.redirect('artists');
+        res.redirect(`/artists/${artist._id}`);
     });
     if (req.body.yearFounded) req.body.yearFounded = req.body.yearFounded.split(',');
 	// remove empty properties

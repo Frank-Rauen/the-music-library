@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<p>Verify that the musician you want to input is not already listed
+  <select>
+    <% musicians.forEach(function(m) { %>
+      <option><%= m.name %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-musician-form" action="/musicians" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Born:</label>
+  <input type="date" name="born">
+  <label>Primary Instrument:</label>
+  <input type="text" name="instrument">
+  <input type="submit" value="Add Musician">
+</form>
+<%- include('../partials/footer') %>

@@ -7,6 +7,7 @@ require('./config/database');
 const indexRouter = require('./routes/index');
 const artistsRouter = require('./routes/artists');
 const albumsRouter = require('./routes/albums');
+const musiciansRouter = require('./routes/musicians');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static('public'));
 app.use('/', indexRouter);
 app.use('/artists', artistsRouter);
 app.use('/', albumsRouter);
+app.use('/', musiciansRouter);
 
 app.listen(port, () => {
     console.log(`Express is Listening on port ${port}`);

@@ -1,4 +1,5 @@
-const Artist = require('../models/artist')
+const Artist = require('../models/artist');
+const Musician = require('../models/musician');
 
 module.exports = {
     new: newArtist,
@@ -32,7 +33,16 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Artist.findById(req.params.id, function(err, artist) {
-      res.render('artists/show', { title: 'Artist Detail', artist });
+    Artist.findById(req.params.id)
+    .populate('musicians').exec(function(err, artist) {
+      Musician.find(
+       {_id: {$nin: artist.musicians}},
+       function(err, musicians) {
+         console.log(musicians);
+         res.render('artists/show', {
+           title: 'Artist Detail', artist, musicians
+         });
+       }
+     );
     });
   }

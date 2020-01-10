@@ -1,4 +1,5 @@
 const Musician = require('../models/musician');
+const Artist = require('../models/artist');
 
 function newMusician(req, res) {
     Musician.find({}, function(err, musicians){
@@ -18,7 +19,17 @@ function create(req, res) {
       });
     }
 
+function addMusician(req, res) {
+    Artist.findById(req.params.id, function(err, artist){
+        artist.musicians.push(req.body.musicianId);
+        artist.save(function(err){
+            res.redirect(`/artists/${artist._id}`);
+        });
+    });
+}
+
 module.exports = {
     new: newMusician,
-    create
+    create,
+    addMusician
 };

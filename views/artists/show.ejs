@@ -8,7 +8,20 @@
     <div>Year Founded</div>
     <div><%= artist.yearFounded %></div>
     <div>Musicians:</div>
+    <ul>
+      <%- artist.musicians.map(p => 
+        `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
+      ).join('') %>
+    </ul>
   </section>
+  <form id="add-to-musicians" action="/artists/<%= artist._id%>/musicians" method="POST">
+    <select name="musicianId">
+      <%- musicians.map(p => 
+        `<option value="${p._id}">${p.name}</option>`
+      ).join('') %>
+    </select>
+    <button type="submit">Add Musician to Artist</button>
+  </form>
     <h2>Albums</h2>
     <form id="add-album" method="POST" action="/artists/<%= artist._id %>/albums">
     <label>Album:</label>

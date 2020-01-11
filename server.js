@@ -10,6 +10,7 @@ const albumsRouter = require('./routes/albums');
 const musiciansRouter = require('./routes/musicians');
 
 const app = express();
+require('dotenv').config();
 
 app.set('view engine', 'ejs');
 

@@ -14,6 +14,7 @@
       ).join('') %>
     </ul>
   </section>
+ 
   <form id="add-to-musicians" action="/artists/<%= artist._id%>/musicians" method="POST">
     <select name="musicianId">
       <%- musicians.map(p => 
@@ -21,6 +22,7 @@
       ).join('') %>
     </select>
     <button type="submit">Add Musician to Artist</button>
+ 
   </form>
     <h2>Albums</h2>
     <form id="add-album" method="POST" action="/artists/<%= artist._id %>/albums">

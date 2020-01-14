@@ -8,7 +8,7 @@ const port = 3000;
 const app = express();
 
 require('./config/database');
-require('./config/passport')
+require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const artistsRouter = require('./routes/artists');

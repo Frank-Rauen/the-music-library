@@ -5,10 +5,13 @@ const passport = require('passport');
 const methodoverride = require('method-override');
 const port = 3000;
 
+require('dotenv').config();
+
 const app = express();
 
 require('./config/database');
 require('./config/passport');
+
 
 const indexRouter = require('./routes/index');
 const artistsRouter = require('./routes/artists');
@@ -17,7 +20,7 @@ const musiciansRouter = require('./routes/musicians');
 const googlersRouter = require('./routes/googlers')
 
 
-require('dotenv').config();
+
 
 app.set('view engine', 'ejs');
 

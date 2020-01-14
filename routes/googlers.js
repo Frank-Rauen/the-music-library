@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const googlersCtrl = require('../controllers/students');
+const googlersCtrl = require('../controllers/googlers');
 
 
-router.get('/students', isLoggedIn, googlersCtrl.index);
+router.get('/artists', isLoggedIn, googlersCtrl.index);
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next();

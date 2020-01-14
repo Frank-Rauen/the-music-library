@@ -6,7 +6,7 @@ module.exports = {
 
 function index(req, res) {
     Googler.find({}, function(err, googlers) {
-      res.render('index', { 
+      res.render('artists/index', { 
         googlers,
       user:req.user
      });

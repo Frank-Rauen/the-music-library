@@ -1,7 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-const User = require('../models/user');
+const Googler = require('../models/googler');
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -9,19 +9,19 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 },
 function(accessToken, refreshToken, profile, cb){
-    User.findOne({'googleId': profile.id}, function(err, user) {
+    Googler.findOne({'googleId': profile.id}, function(err, googler) {
         if(err) return cb(err);
-        if (user) {
+        if (googler) {
             return cb(null, user); 
         } else {
-            const newUser = new User({
+            const newGoogler = new Googler({
                 name: profile.displayName,
                 email: profile.emails[0].value,
                 googleId: profile.id
             });
-            newUser.save(function(err){
+            newGoogler.save(function(err){
                 if (err) return cb(err);
-                return cb(null, newUser);   
+                return cb(null, newGoogler);   
             });
         }
     });

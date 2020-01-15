@@ -5,7 +5,8 @@ function newMusician(req, res) {
     Musician.find({}, function(err, musicians){
         res.render('musicians/new', {
             title: 'Add Musician',
-            musicians
+            musicians,
+            user:req.user
         });
     })
 }

@@ -10,6 +10,8 @@ module.exports = {
 
 function newArtist(req, res) {
     res.render('artists/new', {title: 'Add Artist'});
+    user:req.user
+
 }
 
 function create(req, res) {

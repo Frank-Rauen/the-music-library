@@ -10,7 +10,10 @@
     <div>Musicians:</div>
     <ul>
       <%- artist.musicians.map(p => 
-        `<li>${p.name} <small>${p.born.toLocaleDateString()}</small></li>`
+        `<li>${p.name} 
+          ${p.born.toLocaleDateString()}
+          ${p.instrument}
+        </li>`
       ).join('') %>
     </ul>
   </section>
@@ -18,7 +21,7 @@
   <form id="add-to-musicians" action="/artists/<%= artist._id%>/musicians" method="POST">
     <select name="musicianId">
       <%- musicians.map(p => 
-        `<option value="${p._id}">${p.name, p.instrument}</option>`
+        `<option value="${p._id}">${p.name}</option>`
       ).join('') %>
     </select>
     <button type="submit">Add Musician to Artist</button>

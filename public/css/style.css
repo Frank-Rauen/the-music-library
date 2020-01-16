@@ -139,3 +139,8 @@
       display: flex;
 
   }
+
+  #deletebtn {
+    background-color: #ff5e42;
+    width: 5rem;
+  }

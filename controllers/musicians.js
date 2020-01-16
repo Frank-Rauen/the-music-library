@@ -17,6 +17,8 @@ function create(req, res) {
         `${s.substr(5,2)}-${s.substr(8,2)}-${s.substr(0,4)}`;
       Musician.create(req.body, function(err, musician) {
         res.redirect('/musicians/new');
+        user:req.user;
+
       });
     }
 
@@ -25,6 +27,8 @@ function addMusician(req, res) {
         artist.musicians.push(req.body.musicianId);
         artist.save(function(err){
             res.redirect(`/artists/${artist._id}`);
+            user:req.user;
+
         });
     });
 }

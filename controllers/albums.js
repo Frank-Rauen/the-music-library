@@ -5,6 +5,7 @@ function create(req, res) {
         artist.albums.push(req.body);
         artist.save(function(err){
             res.redirect(`/artists/${artist._id}`);
+            user:req.user;
         });
     });
 }

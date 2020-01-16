@@ -5,7 +5,8 @@ module.exports = {
     new: newArtist,
     create,
     index,
-    show
+    show,
+    delArtist
 }
 
 function newArtist(req, res) {
@@ -22,15 +23,17 @@ function create(req, res) {
         res.redirect(`/artists/${artist._id}`);
     });
     if (req.body.yearFounded) req.body.yearFounded = req.body.yearFounded.split(',');
-	// remove empty properties
 	for (let key in req.body) {
- 	  if (req.body[key] === '') delete req.body[key];
+     if (req.body[key] === '') delete req.body[key];
+     user:req.user;
 	}
 }
 
 function index(req, res) {
     Artist.find({}, function(err, artists){
         res.render('artists/index', {title: 'All Artists', artists});
+        user:req.user;
+
     });
 }
 
@@ -47,4 +50,12 @@ function show(req, res) {
        }
      );
     });
+  }
+
+  function delArtist(req, res){
+    Artist.findByIdAndDelete(req.params.id,(err,artist) =>{
+      if (err) return res.status(500).send(err);
+      res.redirect('/artists')
+    });
+      
   }

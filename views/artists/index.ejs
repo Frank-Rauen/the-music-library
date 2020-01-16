@@ -14,8 +14,12 @@
           <td><%= a.genre %></td>
           <td><%= a.yearFounded %></td>
           <td><a href="/artists/<%= a._id %>">DETAILS</a></td>
+          <td>
+            <form action="/artists/<%= a._id %>?_method=DELETE" method="POST">
+              <button id="deletebtn" type="submit">Delete</button>
+            </form>
+            </td>
         </tr>
         <% }); %>
       </tbody>
     </table>
-    

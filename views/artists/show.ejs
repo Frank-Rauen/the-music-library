@@ -18,7 +18,7 @@
   <form id="add-to-musicians" action="/artists/<%= artist._id%>/musicians" method="POST">
     <select name="musicianId">
       <%- musicians.map(p => 
-        `<option value="${p._id}">${p.name}</option>`
+        `<option value="${p._id}">${p.name, p.instrument}</option>`
       ).join('') %>
     </select>
     <button type="submit">Add Musician to Artist</button>

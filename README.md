@@ -4,11 +4,15 @@ The Music Library
 ##Description:
  The perfect app to compile a full history of artists, the albums by those artists, and the musicians who brought those albums to life with fervent passion and once in a lifetime talent
 
- ##Screenshots
+ ##Screenshots:
+ ALL ARTISTS
  ![Alt text](/public/images/artists.png?raw=true "All Artists Page")
+ NEW ARTIST
  ![Alt text](/public/images/newartist.png?raw=true "New Artist Page")
+ NEW MUSICIAN
  ![Alt text](/public/images/newmusician.png?raw=true "New Musician Page")
- ![Alt text](/public/images/artistdetail.png?raw=true "All Artists Page")
+ARTIST DETAIL PAGE
+ ![Alt text](/public/images/artistdetail.png?raw=true "Artist Detail Page")
 
 
  ##Technologies Used:

@@ -11,7 +11,7 @@ const albumSchema = new Schema({
 })
 
 const artistSchema = new Schema({
-        name: {type: String, required: true},
+        name: {type: String, required: true, unique:true},
         genre: {type: String, required: true},
         yearFounded: {type: Number, default: 1900},
         albums: [albumSchema],
